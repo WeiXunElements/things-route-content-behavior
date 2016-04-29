@@ -1,10 +1,10 @@
 {
   "name": "things-route-content-behavior",
-  "version": "0.0.13",
+  "version": "0.0.1",
   "authors": [
     "Hatio Lab. <heartyoh@hatiolab.com>"
   ],
-  "description": "An element providing Date Picker, Time Picker and Date Range Pickger (things-date-from-to).",
+  "description": "An element providing things-route-content-behavior.",
   "keywords": [
     "web-component",
     "polymer",
