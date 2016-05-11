@@ -25,7 +25,8 @@ Things.RouteContentBehavior = {
      */
     myRoute: {
       type: String,
-      computed: '_computeRoute(resourceUrl)'
+      computed: '_computeRoute(resourceUrl)',
+      observer: '_myRouteChanged'
     },
 
     /**
@@ -69,7 +70,17 @@ Things.RouteContentBehavior = {
    */
   _computeRoute: function(resourceUrl) {
     return resourceUrl;
-  },  
+  },
+
+  /**
+   * myRoute가 변경된 경우
+   *
+   * @param {String} myRoute
+   */
+  _myRouteChanged: function(myRoute) {
+    if(!this.currentRoute) return;
+    this._checkActiveContent(myRoute, this.currentRoute);
+  },
 
   /**
    * 현재 선택된 routing이 자신인지 체크하여 자신이 선택되었다면 메타 데이터를 조회하여 화면을 구성한다. 
@@ -77,8 +88,18 @@ Things.RouteContentBehavior = {
    */
   _currentRouteChange: function(currentRoute) {
     var myRoute = this.getMyRoute();
-    this.active = (myRoute == currentRoute);
-    this._activeContent();
+    if(!myRoute) return;
+    this._checkActiveContent(myRoute, currentRoute);
+  },
+
+  /**
+   * Check content activation
+   */
+  _checkActiveContent: function(myRoute, currentRoute) {
+    if(!this.isConfigured) {
+      this.active = (myRoute == currentRoute);
+      this._activeContent();
+    }
   },
 
   /**
