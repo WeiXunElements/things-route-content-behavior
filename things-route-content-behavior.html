@@ -13,7 +13,7 @@ window.Things = window.Things || {};
  * getMyRoute() 함수는 자신의 route 정보를 리턴해야 하고 initializeContent() 함수는 화면 초기화를 진행하는 함수이다.
  *
  * @polymerBehavior Things.RouteContentBehavior
- * 
+ *
  * @demo demo/demo-things-route-content-behavior.html
  */
 Things.RouteContentBehavior = {
@@ -22,6 +22,8 @@ Things.RouteContentBehavior = {
 
     /**
      * 자산의 Route 정보
+     * *******
+     * @type {String}
      */
     myRoute: {
       type: String,
@@ -31,6 +33,8 @@ Things.RouteContentBehavior = {
 
     /**
      * 현재 메뉴에서 선택된 라우팅
+     * ******
+     * @type {String}
      */
     currentRoute: {
       type: String,
@@ -38,7 +42,9 @@ Things.RouteContentBehavior = {
     },
 
     /**
-     * 화면이 액티브 상태인지 여부 
+     * 화면이 액티브 상태인지 여부
+     * *******
+     * @type {Boolean}
      */
     active: {
       type: Boolean,
@@ -48,6 +54,8 @@ Things.RouteContentBehavior = {
     /**
      * 메타 데이터를 가져와서 화면 구성이 완료되었는지 여부.
      * 한 번 화면 구성이 완료되면 다시 구성하지 않는다.
+     * *******
+     * @type {Boolean}
      */
     isConfigured: {
       type: Boolean,
@@ -57,6 +65,7 @@ Things.RouteContentBehavior = {
 
   /**
    * 메뉴에 등록된 자신의 routing 정보를 리턴한다.
+   * *******
    */
   getMyRoute: function() {
     return this.myRoute;
@@ -64,7 +73,7 @@ Things.RouteContentBehavior = {
 
   /**
    * resourceUrl로 route 정보를 다시 생성
-   *
+   *********
    * @param {String} resourceUrl
    * @return {String} route
    */
@@ -83,7 +92,7 @@ Things.RouteContentBehavior = {
   },
 
   /**
-   * 현재 선택된 routing이 자신인지 체크하여 자신이 선택되었다면 메타 데이터를 조회하여 화면을 구성한다. 
+   * 현재 선택된 routing이 자신인지 체크하여 자신이 선택되었다면 메타 데이터를 조회하여 화면을 구성한다.
    * 이미 초기화가 된 화면은 다시 초기화하지 않는다.
    */
   _currentRouteChange: function(currentRoute) {
