@@ -1,12 +1,12 @@
 # things-route-content-behavior
 
-## 메뉴를 통해 라우팅된 화면의 동작을 정의하는 Behavior
+## This is a Behavior that defines the behavior of the screen that is routed through the menu.
 
-  메뉴가 선택이 되는 순간 자신의 라우팅 정보와 메뉴에서 선택된 라우팅이 일치하는지 체크하여 화면 초기화를 진행한다.
+  At the moment when the menu is selected, it checks whether the routing selected from the menu is matching its routing information to perform the initialization of the screen.
 
-  Things.RouteContentBehavior를 상속하는 컴포넌트에서는 반드시 this.getMyRoute()와 initializeContent() 함수를 구현해야 한다.
+  this.getMyRoute() and initializeContent() functions should be implemented in the components who inherit Things.RouteContentBehavior.
 
-  getMyRoute() 함수는 자신의 route 정보를 리턴해야 하고 initializeContent() 함수는 화면 초기화를 진행하는 함수이다.
+  getMyRoute() function returns its route information and initializeContent() function initializes the screen.
 
 
 *****
@@ -15,8 +15,7 @@
 
 ## Dependencies
 
-Element dependencies are managed via [Bower](http://bower.io/). You can
-install that via:
+Element dependencies are managed via [Bower](http://bower.io/). You can install that via:
 
     npm install -g bower
 
